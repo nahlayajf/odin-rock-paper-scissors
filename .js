@@ -13,4 +13,14 @@ function getComputerChoice() {
     }
 
 }
+console.log(getComputerChoice())
+
+function getHumanChoice() {
+    // prompt user for choice 
+    let humanChoice = prompt("Enter Game Choice: ");
+    // return user choice 
+    return humanChoice;
+}
+
+console.log(getHumanChoice());
 

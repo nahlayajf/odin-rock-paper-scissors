@@ -65,8 +65,8 @@ function playGame(humanChoice, computerChoice) {
 
 
 
-    console.log(humanScore);
-    console.log(computerScore);
+    console.log(`Human Score: ${humanScore}`);
+    console.log(`Computer Score: ${computerScore}`);
 
 
 }
@@ -81,3 +81,17 @@ for (let i = 0; i < 5; i++) {
     playGame(humanSelection, computerSelection);
 }
 
+
+if (computerScore > humanScore) {
+
+    console.log("Game over! Computer Wins!")
+
+}
+else if (computerScore === humanScore) {
+    console.log("Game over! Tie!");
+}
+else {
+    console.log("Game over! Human Wins!");
+}
+
+console.log(`Final score: Human: ${humanScore}, Computer ${computerScore}`);

@@ -11,10 +11,6 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    let humanChoice = prompt("Enter Game Choice:");
-    return humanChoice;
-}
 
 let humanScore = 0;
 let computerScore = 0;
@@ -57,18 +53,18 @@ content.appendChild(selectionBtns);
 
 const rockBtn = document.createElement("button");
 rockBtn.innerText = "Rock";
-rockBtn.addEventListener("click", playRound("rock", getComputerChoice()))
+rockBtn.addEventListener('click', () => playRound("rock", getComputerChoice()));
 
 selectionBtns.appendChild(rockBtn);
 
 const paperBtn = document.createElement("button");
 paperBtn.innerText = "Paper";
-paperBtn.addEventListener("click", playRound("paper", getComputerChoice()))
+paperBtn.addEventListener('click', () => playRound("paper", getComputerChoice()));
 selectionBtns.appendChild(paperBtn);
 
 const scissorBtn = document.createElement("button");
 scissorBtn.innerText = "Scissor";
-scissorBtn.addEventListener("click", playRound("scissors", getComputerChoice()))
+scissorBtn.addEventListener('click', () => playRound("scissors", getComputerChoice()));
 selectionBtns.appendChild(scissorBtn);
 
 

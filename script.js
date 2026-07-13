@@ -20,38 +20,48 @@ function playRound(humanChoice, computerChoice) {
 
     if (humanChoice === "rock" && computerChoice === "paper") {
         resultDisplay.textContent = "You lose! Paper beats Rock.";
-        computerScore++;
+        compScoreDis.textContent = `Computer Score: ${++computerScore}`
+
     } else if (humanChoice === "paper" && computerChoice === "rock") {
         resultDisplay.textContent = "You win! Paper beats Rock.";
-        humanScore++;
+        playerScoreDis.textContent = `Player Score: ${++humanScore}`;
     } else if (humanChoice === "rock" && computerChoice === "scissors") {
         resultDisplay.textContent = "You win! Rock beats Scissors!";
-        humanScore++;
+        playerScoreDis.textContent = `Player Score: ${++humanScore}`;
     } else if (humanChoice === "scissors" && computerChoice === "rock") {
         resultDisplay.textContent = "You lose! Rock beats Scissors.";
-        computerScore++;
+        compScoreDis.textContent = `Computer Score: ${++computerScore}`;
     } else if (humanChoice === "paper" && computerChoice === "scissors") {
         resultDisplay.textContent = "You lose! Scissors beats Paper.";
-        computerScore++;
+        compScoreDis.textContent = `Computer Score: ${++computerScore}`;
     }
     else if (humanChoice === "scissors" && computerChoice === "paper") {
         resultDisplay.textContent = "You win! Scissors beats paper.";
-        humanScore++;
+        playerScoreDis.textContent = `Player Score: ${++humanScore}`;
     }
     else {
         resultDisplay.textContent = "Tie";
+    }
+
+    if (computerScore === 5) {
+        winnerDisplay.textContent = "Computer Wins Game!";
+    }
+
+    if (humanScore === 5) {
+        winnerDisplay.textContent = "Human Wins Game!";
     }
 }
 const container = document.body
 const content = document.createElement("div");
 content.classList.add("content");
 container.appendChild(content)
+
 const selectionBtns = document.createElement("div");
 selectionBtns.classList.add("selection-btn");
 content.appendChild(selectionBtns);
 
 const resultDisplay = document.createElement("div");
-resultDisplay.classList.add("results");
+resultDisplay.classList.add("round-results");
 content.appendChild(resultDisplay);
 
 
@@ -70,6 +80,21 @@ const scissorBtn = document.createElement("button");
 scissorBtn.innerText = "Scissor";
 scissorBtn.addEventListener('click', () => playRound("scissors", getComputerChoice()));
 selectionBtns.appendChild(scissorBtn);
+
+
+const compScoreDis = document.createElement("div");
+compScoreDis.classList.add("comp-score");
+content.appendChild(compScoreDis);
+compScoreDis.textContent = "ComputerScore:"
+
+const playerScoreDis = document.createElement("div");
+playerScoreDis.classList.add("player-score");
+content.appendChild(playerScoreDis);
+playerScoreDis.textContent = "PlayerScore:"
+
+const winnerDisplay = document.createElement("div");
+winnerDisplay.classList.add("winner-display");
+content.appendChild(winnerDisplay);
 
 
 
